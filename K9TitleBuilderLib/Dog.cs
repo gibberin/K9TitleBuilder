@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
@@ -9,8 +11,9 @@ namespace K9TB
     {
 		public string RegName { get; set; }
         public string CallName { get; set; }
-		public List<Person> OwnerList { get; set; }
-		public Person Breeder { get; set; }
+		[DisplayName("Owner(s)")]
+        public List<Person> OwnerList { get; set; }
+		public Breeder Breeder { get; set; }
         public string Breed { get; set; }
 		public string Coat { get; set; }
 		public string Color { get; set; }
@@ -21,17 +24,28 @@ namespace K9TB
 		public Dog Sire { get; set; }
         public int? DamId { get; set; }
 		public Dog Dam { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}")]
+        [DisplayName("Date of Birth")]
         public DateTime DateOfBirth { get; set; }
         public string Gender { get; set; }
 		public bool Altered { get; set; }
-		public string AKCReg { get; set; }
-		public string CKCReg { get; set; }
-		public string UKCReg { get; set; }
+		[DisplayName("AKC Registration")]
+        public string AKCReg { get; set; }
+        [DisplayName("CKC Registration")]
+        public string CKCReg { get; set; }
+        [DisplayName("UKC Registration")]
+        public string UKCReg { get; set; }
+        [DisplayName("Rally Jump Height")]
         public float RallyJumpHeight { get; set; }
+        [DisplayName("Obedience Jump Height")]
         public float ObedienceJumpHeight { get; set; }
+        [DisplayName("Agility Jump Height")]
         public float AgilityJumpHeight { get; set; }
+        [DisplayName("Titles")]
         public List<Title> TitleList { get; set; }
-		public List<MediaItem> MediaList { get; set; }
+		[DisplayName("Media")]
+        public List<MediaItem> MediaList { get; set; }
 
         public Dog()
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace K9TB
@@ -11,8 +12,11 @@ namespace K9TB
         public string StreetAddr2 { get; set; }
         public string City { get; set; }
         public string State { get; set; }
+        [DataType(DataType.PostalCode)]
         public string Zip { get; set; }
         public string Country { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        [DisplayFormat(DataFormatString = "{0:(###)-###-####}")]
         public string Phone { get; set; }
         public float Lat { get; set; }
         public float Long { get; set; }
